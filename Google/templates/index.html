@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %} <link rel="stylesheet" href="{% static 'css7/style.css' %}"> {% endblock %}
+{% block js %} <script src="{% static 'js/script.js' %}"></script> {% endblock %}
+{% block link %} <link rel="shourcut icon" href="{% static 'images/favicon.png' %}" type="icon/png"> {% endblock %}
+{% block title %} Google Clone {% endblock %}
+
+{% block content %}
+<div class="Page">
+<div class="title">
+    <h1 class="Google">
+        <span class="G">G</span>
+        <span class="o">o</span>
+        <span class="o2">o</span>
+        <span class="g">g</span>
+        <span class="l">l</span>
+        <span class="e">e</span>
+    </h1>
+    <form action="{% url 'search' %}" method="GET">
+        <input type="text" class="input" name="search" placeholder="Search the web">
+        <button type="submit" class="enter"></button>
+    </form>
+</div>
+{% endblock %}

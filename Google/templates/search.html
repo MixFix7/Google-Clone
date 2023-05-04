@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{query}} {% endblock %}
+{% block css %} <link rel="stylesheet" href="{% static 'css7/search.css' %}"> {% endblock %}
+{% block link %} <link rel="shourcut icon" href="{% static 'images/favicon-search.png' %}" type="icon/png"> {% endblock %}
+{% block js %} <script src="{% static 'js/script-search.js' %}"></script> {% endblock %}
+
+{% block content %}
+
+<header>
+    <form action="{% url 'search' %}" method="GET">
+        <h1 class="Google">
+            <span class="G">G</span>
+            <span class="o">o</span>
+            <span class="o2">o</span>
+            <span class="g">g</span>
+            <span class="l">l</span>
+            <span class="e">e</span>
+        </h1>
+        <input type="text" class="input" name="search" title="{{query}}">
+        <button type="submit" class="enter"></button>
+    </form>
+</header>
+
+<hr>
+
+<div class="results">
+{% for items in res.items %}
+
+    <h4><img class="avatars" src="{{items.pagemap.cse_thumbnail.0.src}}" alt="">{{items.displayLink}}</h4>
+    <a href="{{items.link}}">{{items.title}}</a>
+    <h5>{{items.snippet}}</h5>
+    <br>
+    
+{% endfor %}
+</div>
+
+{% endblock %}

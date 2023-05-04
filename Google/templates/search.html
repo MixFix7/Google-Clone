@@ -10,6 +10,7 @@
 
 <header>
     <form action="{% url 'search' %}" method="GET">
+        <a href="{% url 'home' %}" class="home">
         <h1 class="Google">
             <span class="G">G</span>
             <span class="o">o</span>
@@ -18,7 +19,8 @@
             <span class="l">l</span>
             <span class="e">e</span>
         </h1>
-        <input type="text" class="input" name="search" title="{{query}}">
+        </a>
+        <input type="text" class="input" name="search" value="{{query}}" >
         <button type="submit" class="enter"></button>
     </form>
 </header>
@@ -27,10 +29,12 @@
 
 <div class="results">
 {% for items in res.items %}
-
-    <h4><img class="avatars" src="{{items.pagemap.cse_thumbnail.0.src}}" alt="">{{items.displayLink}}</h4>
-    <a href="{{items.link}}">{{items.title}}</a>
-    <h5>{{items.snippet}}</h5>
+    <div class="label">
+        <img class="avatars" src="{{items.pagemap.cse_thumbnail.0.src}}" alt=""> 
+        <span class="link">{{items.displayLink}}</span>
+    </div>
+    <a class="title" href="{{items.link}}" target="_blank">{{items.title}}</a>
+    <p>{{items.snippet}}</p>
     <br>
     
 {% endfor %}

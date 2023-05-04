@@ -5,6 +5,10 @@ header {
     height: 100px;
 }
 
+.home {
+    text-decoration: none;
+}
+
 .Google span {
     font-size: 30px;
     font-family: 'Roboto', sans-serif;
@@ -75,8 +79,34 @@ form {
 }
 
 .avatars {
-    margin-top: 5px;
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     border-radius: 20px;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    margin-left: 5px;
+}
+
+.title {
+    text-decoration: none;
+}
+
+.title:hover {
+    text-decoration: underline;
+}
+
+.title {
+    font-size: 25px;
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    word-wrap: break-word;
+    max-width: 70ch;
 }

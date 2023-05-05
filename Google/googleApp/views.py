@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from googleapiclient.discovery import build
-from googleApp.key import api_key, api_key3, cx1, cx2
+from googleApp.key import api_key, api_key3, cx1, cx2, api_keyimg
 from google_images_search import GoogleImagesSearch
+import requests
+from gpytranslate import SyncTranslator
+
+t = SyncTranslator()
 
 def search_sites(query):
     service = build('customsearch', 'v1', developerKey=api_key)
@@ -18,12 +22,18 @@ def search_images2(query):
     gis.search({'q': query, 'num': 20})
     return gis.results()
 
+def search_images3(query):
+    query_en = t.translate(query, targetlanguage="en")
+    url = f'https://pixabay.com/api/?key={api_keyimg}&q={query_en["text"]}&per_page=100'
+    images = requests.request("GET", url)
+    return images.json()
+
 def home(request):
     return render(request, 'index.html')
 
 def search(request):
     query_user = request.GET["search"]
     results_sites = search_sites(query_user)
-    results_images = search_images2(query_user)
+    results_images = search_images3(query_user)
     return render(request, 'search.html', {'query': query_user, 'res': results_sites, 'resImages': results_images})
 

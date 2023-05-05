@@ -45,9 +45,9 @@
 
 <div class="images">
 
-{% for image in resImages %}
+{% for image in resImages.hits %}
 
-<img class="image" src="{{image.url}}" alt="">
+<img class="image" src="{{image.largeImageURL}}" alt="">
 
 {% endfor %}
 

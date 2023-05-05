@@ -21,7 +21,8 @@
         </h1>
         </a>
         <input type="text" class="input" name="search" value="{{query}}" >
-        <button type="submit" class="enter"></button>
+        <button type="submit" class="enter"><img class="glass" src="{% static 'images/Magnifying-glass.png' %}" alt="">
+        </button>
     </form>
 </header>
 
@@ -29,6 +30,8 @@
 
 <div class="results">
 {% for items in res.items %}
+
+
     <div class="label">
         <img class="avatars" src="{{items.pagemap.cse_thumbnail.0.src}}" alt=""> 
         <span class="link">{{items.displayLink}}</span>
@@ -36,8 +39,19 @@
     <a class="title" href="{{items.link}}" target="_blank">{{items.title}}</a>
     <p>{{items.snippet}}</p>
     <br>
-    
+
 {% endfor %}
 </div>
+
+<div class="images">
+
+{% for image in resImages %}
+
+<img class="image" src="{{image.url}}" alt="">
+
+{% endfor %}
+
+</div>
+
 
 {% endblock %}

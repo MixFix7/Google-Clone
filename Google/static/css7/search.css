@@ -50,32 +50,47 @@ form {
     align-items: center;
     text-align: center;
     margin-top: 20px;
-  }
+}
   
 
-  input[type="text"] {
-    padding: 10px;
+input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  outline: none;
+  min-width: 700px;
+  height: 30px;
+  margin-right: 60px;
+}
+
+input[type="text"]::placeholder {
+  color: #B1B1B1;
+}
+
+button[type="submit"] {
+  position: relative;
+}
+
+
+.enter {
+    position: relative;
+    right: 110px;
+    background-color: transparent;
     border: none;
-    border-radius: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
-    outline: none;
-    min-width: 700px;
+    cursor: pointer;
+}
+  
+.glass {
     height: 30px;
-    margin-right: 60px;
-  }
-  
-  input[type="text"]::placeholder {
-    color: #B1B1B1;
-  }
-  
-  button[type="submit"] {
-    display: none;
-  }
+    width: 30px;
+}
   
 
 .results {
     margin-left: 150px;
+    overflow-y: scroll;
 }
 
 .avatars {
@@ -110,3 +125,32 @@ p {
     word-wrap: break-word;
     max-width: 70ch;
 }
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1700px;
+    margin: 0 auto;
+}
+
+.image {
+    width: calc(20% - 10px);
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 767px) {
+    .image {
+        width: calc(33.3% - 10px);
+    }
+    
+}
+@media screen and (max-width: 480px) {
+    .image {
+        width: 100%;
+    }
+    
+}
+  

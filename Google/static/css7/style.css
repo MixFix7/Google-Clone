@@ -52,24 +52,53 @@ form {
   }
   
 
-  input[type="text"] {
-    padding: 10px;
-    border: none;
-    border-radius: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
-    outline: none;
-    min-width: 700px;
-    height: 30px;
-    margin-right: 60px;
-  }
-  
-  input[type="text"]::placeholder {
-    color: #B1B1B1;
-  }
-  
-  button[type="submit"] {
-    display: none;
-  }
+input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  outline: none;
+  min-width: 700px;
+  height: 30px;
+  margin-right: 60px;
+}
+
+input[type="text"]::placeholder {
+  color: #B1B1B1;
+}
+
+
+.enter {
+  position: relative;
+  right: 110px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.glass {
+  height: 30px;
+  width: 30px;
+}
+
+.error {
+  height: 400px;
+  width: 1300px;
+}
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image {
+  width: 33.3%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+
+
 
   

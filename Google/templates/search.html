@@ -4,12 +4,15 @@
 {% block title %} {{query}} {% endblock %}
 {% block css %} <link rel="stylesheet" href="{% static 'css7/search.css' %}"> {% endblock %}
 {% block link %} <link rel="shourcut icon" href="{% static 'images/favicon-search.png' %}" type="icon/png"> {% endblock %}
-{% block js %} <script src="{% static 'js/script-search.js' %}"></script> {% endblock %}
+
+{% block js %} 
+    <script src="{% static 'js/script-search.js' %}"></script> 
+{% endblock %}
 
 {% block content %}
 
 <header>
-    <form action="{% url 'search' %}" method="GET">
+    <form action="{% url 'searchPage' %}" method="GET">
         <a href="{% url 'home' %}" class="home">
         <h1 class="Google">
             <span class="G">G</span>
@@ -21,10 +24,18 @@
         </h1>
         </a>
         <input type="text" class="input" name="search" value="{{query}}" >
-        <button type="submit" class="enter"><img class="glass" src="{% static 'images/Magnifying-glass.png' %}" alt="">
-        </button>
+        <button type="submit" class="enter"><img class="glass" src="{% static 'images/Magnifying-glass.png' %}" alt=""></button>
+        
     </form>
 </header>
+
+<nav>
+    <button class="btnThere">Search</button>
+    <form action="{% url 'imagesPage' %}">
+        <input class="pageimages" type="text" name="searchimg" value="{{query}}">
+        <button class="btnNext">Images</button>
+    </form> 
+</nav>
 
 <hr>
 
@@ -42,16 +53,5 @@
 
 {% endfor %}
 </div>
-
-<div class="images">
-
-{% for image in resImages.hits %}
-
-<img class="image" src="{{image.largeImageURL}}" alt="">
-
-{% endfor %}
-
-</div>
-
 
 {% endblock %}

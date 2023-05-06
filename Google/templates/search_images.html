@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %} {{query}} {% endblock %}
+
+{% load static %}
+
+{% block link %} <link rel="shourcut icon" href="{% static 'images/favicon-search.png' %}" type="icon/png"> {% endblock %}
+
+{% block css %} <link rel="stylesheet" href="{% static 'css7/search.css' %}"> {% endblock %}
+
+{% block content %}
+
+<header>
+    <form action="{% url 'imagesPage' %}" method="GET">
+        <a href="{% url 'home' %}" class="home">
+        <h1 class="Google">
+            <span class="G">G</span>
+            <span class="o">o</span>
+            <span class="o2">o</span>
+            <span class="g">g</span>
+            <span class="l">l</span>
+            <span class="e">e</span>
+        </h1>
+        </a>
+        <input type="text" class="input" name="searchimg" value="{{query}}" >
+        <button type="submit" class="enter"><img class="glass" src="{% static 'images/Magnifying-glass.png' %}" alt=""></button>
+    </form>
+</header>
+
+<nav>
+    <form action="{% url 'searchPage' %}">
+        <input class="pageimages" type="text" name="search" value="{{query}}">
+        <button class="btnNext">Search</button>
+    </form> 
+    <button class="btnThere">Images</button>
+</nav>
+
+<hr>
+
+<div class="images">
+
+{% for image in resImages.hits %}
+
+<img class="image" src="{{image.largeImageURL}}" alt="">
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

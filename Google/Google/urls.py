@@ -21,5 +21,6 @@ from googleApp.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name="home"),
-    path('search', search, name="search")
+    path('search', search, name="searchPage"),
+    path('images/', search_images_page, name="imagesPage")
 ]

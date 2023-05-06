@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from googleapiclient.discovery import build
-from googleApp.key import api_key, api_key3, cx1, cx2, api_keyimg
+from googleApp.key import api_key2, api_key3, cx1, cx2, api_keyimg
 from google_images_search import GoogleImagesSearch
 import requests
 from gpytranslate import SyncTranslator
@@ -8,7 +8,7 @@ from gpytranslate import SyncTranslator
 t = SyncTranslator()
 
 def search_sites(query):
-    service = build('customsearch', 'v1', developerKey=api_key)
+    service = build('customsearch', 'v1', developerKey=api_key2)
     res = service.cse().list(q=query, cx=cx1).execute()
     return res
 
@@ -34,6 +34,10 @@ def home(request):
 def search(request):
     query_user = request.GET["search"]
     results_sites = search_sites(query_user)
-    results_images = search_images3(query_user)
-    return render(request, 'search.html', {'query': query_user, 'res': results_sites, 'resImages': results_images})
+    return render(request, 'search.html', {'query': query_user, 'res': results_sites})
+
+def search_images_page(request):
+    query_img = request.GET["searchimg"]
+    results_images = search_images3(query_img)
+    return render(request, 'search_images.html', {'query': query_img, 'resImages': results_images})
 

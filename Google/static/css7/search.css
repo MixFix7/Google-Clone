@@ -175,7 +175,6 @@ p {
 }
 
 .images {
-    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     max-width: 1700px;
@@ -183,12 +182,63 @@ p {
     margin-top: 40px;
 }
 
+
+
 .image {
     width: calc(20% - 10px);
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;
 }
+
+.videos {
+    margin-left: 100px;
+}
+
+
+.video {
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  
+  .video .preview img {
+    width: 240px;
+    height: 150px;
+    border-radius: 40px;
+    padding: 10px 10px 10px 10px;
+  }
+  
+  .video .details {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 60%;
+  }
+  
+  .video .details a {
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .video .details .description {
+    flex: 1;
+  }
+  
+  .video .details .description p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .video .details .description .channel {
+    color: #888;
+  }
+  
+  
+
 
 @media screen and (max-width: 767px) {
     .image {

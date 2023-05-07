@@ -6,4 +6,6 @@ Google/googleApp/key.py
 
 venv/
 
-/.idea
+.idea/
+
+tests/

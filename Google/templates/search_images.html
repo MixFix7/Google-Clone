@@ -8,6 +8,10 @@
 
 {% block css %} <link rel="stylesheet" href="{% static 'css7/search.css' %}"> {% endblock %}
 
+{% block js %} 
+    <script src="{% static 'js/script-search.js' %}"></script> 
+{% endblock %}
+
 {% block content %}
 
 <header>
@@ -22,17 +26,22 @@
             <span class="e">e</span>
         </h1>
         </a>
-        <input type="text" class="input" name="searchimg" value="{{query}}" >
+        <input id="base" type="text" class="input" name="searchimg" value="{{query}}" >
         <button type="submit" class="enter"><img class="glass" src="{% static 'images/Magnifying-glass.png' %}" alt=""></button>
     </form>
 </header>
 
 <nav>
     <form action="{% url 'searchPage' %}">
-        <input class="pageimages" type="text" name="search" value="{{query}}">
+        <input id="ser" class="pageimages" type="text" name="search" value="{{query}}">
         <button class="btnNext">Search</button>
     </form> 
     <button class="btnThere">Images</button>
+    <input id="img" class="pageimages" type="text" name="searchVideos" value="{{query}}">
+    <form action="{% url 'videosPage' %}">
+        <input id="vid" class="pageimages" type="text" name="searchVideos" value="{{query}}">
+        <button class="btnNext">Videos</button>
+    </form>
 </nav>
 
 <hr>

@@ -12,7 +12,7 @@
 {% block content %}
 
 <header>
-    <form action="{% url 'searchPage' %}" method="GET">
+    <form action="{% url 'videosPage' %}" method="GET">
         <a href="{% url 'home' %}" class="home">
         <h1 class="Google">
             <span class="G">G</span>
@@ -23,40 +23,45 @@
             <span class="e">e</span>
         </h1>
         </a>
-        <input id="base" type="text" class="input" name="search" value="{{query}}" >
+        <input id="base" type="text" class="input" name="searchVideos" value="{{query}}" >
         <button type="submit" class="enter"><img class="glass" src="{% static 'images/Magnifying-glass.png' %}" alt=""></button>
-        
     </form>
 </header>
 
 <nav>
-    <button class="btnThere">Search</button>
-    <input id="ser" class="pageimages" type="text" name="searchVideos" value="{{query}}">
+    <form action="{% url 'searchPage' %}">
+        <input id="ser" class="pageimages" type="text" name="search" value="{{query}}">
+        <button class="btnNext">Search</button>
+    </form> 
     <form action="{% url 'imagesPage' %}">
         <input id="img" class="pageimages" type="text" name="searchimg" value="{{query}}">
         <button class="btnNext">Images</button>
-    </form> 
-    <form action="{% url 'videosPage' %}">
-        <input id="vid" class="pageimages" type="text" name="searchVideos" value="{{query}}">
-        <button class="btnNext">Videos</button>
     </form>
+    <button class="btnThere">Videos</button>
+    <input id="vid" class="pageimages" type="text" name="searchVideos" value="{{query}}">
 </nav>
 
 <hr>
 
-<div class="results">
-{% for items in res.items %}
+<div class="videos">
 
+{% for video in resVideos.items %}
 
-    <div class="label">
-        <img class="avatars" src="{{items.pagemap.cse_thumbnail.0.src}}" alt=""> 
-        <span class="link">{{items.displayLink}}</span>
+<div class="video">
+    <div class="preview">
+        <a target="_blank" href="https://www.youtube.com/watch?v={{video.id.videoId}}"><img class="preview" src="{{video.snippet.thumbnails.high.url}}" alt=""></a>
     </div>
-    <a class="title" href="{{items.link}}" target="_blank">{{items.title}}</a>
-    <p>{{items.snippet}}</p>
-    <br>
+    <div class="details">
+        <a target="_blank" href="https://www.youtube.com/watch?v={{video.id.videoId}}">{{video.snippet.title}}</a>
+      <div class="description">
+        <p>{{video.snippet.description}}</p>
+        <p class="channel">{{video.snippet.channelTitle}}</p>
+      </div>
+    </div>
+  </div>
 
 {% endfor %}
+
 </div>
 
 {% endblock %}

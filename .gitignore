@@ -5,3 +5,5 @@ Google/googleApp/key.py
 *.pyc/
 
 venv/
+
+/.idea

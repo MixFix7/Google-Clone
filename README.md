@@ -1,2 +1,5 @@
-# Google-Clone
-This is clone google on django
+# Hello everyone
+I created google in python on Django framework and it works.
+
+
+

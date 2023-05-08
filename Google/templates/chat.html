@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Chat with AI {% endblock %}
+{% block css %} <link rel="stylesheet" href="{% static 'css7/chat.css' %}"> {% endblock %}
+{% block link %} <link rel="shourcut icon" href="{% static 'images/chat_icon.png' %}" type="icon/png"> {% endblock %}
+{% block js %} <script src="{% static 'js/script-chat.js' %}"></script> {% endblock %}
+{% block content %}
+
+<header>
+    <form action="{% url 'searchPage' %}" method="GET">
+        <a href="{% url 'home' %}" class="home">
+        <h1 class="Google">
+            <span class="G">G</span>
+            <span class="o">o</span>
+            <span class="o2">o</span>
+            <span class="g">g</span>
+            <span class="l">l</span>
+            <span class="e">e</span>
+        </h1>
+        </a>
+
+        </form>
+    <nav>
+        <form action="{% url 'searchPage' %}">
+            <input id="ser" class="pageimages" type="text" name="search" value="Hello">
+            <button class="btnNext">Search</button>
+        </form>
+        <input id="ser" class="pageimages" type="text" name="searchVideos" value="Hello">
+        <form action="{% url 'imagesPage' %}">
+            <input id="img" class="pageimages" type="text" name="searchimg" value="Hello">
+            <button class="btnNext">Images</button>
+        </form> 
+        <form action="{% url 'videosPage' %}">
+            <input id="vid" class="pageimages" type="text" name="searchVideos" value="Hello">
+            <button class="btnNext">Videos</button>
+        </form>
+        <button class="btnThere">Chat</button>
+    </nav>
+</header>
+
+      <div class="chat-container">
+		<div class="chat-log" id="myDiv">
+			<div class="chat-message bot-message">
+				<p>Hello! How can I assist you?</p>
+			</div>
+			
+			{% for m in chat_history %}
+			<div class="chat-message user-message">        
+				<p>{{m.user_message}}</p>
+			</div>
+
+			<div class="chat-message bot-message"> 
+				<p>{{m.gpt_message}}</p>         
+			</div>
+			{% endfor %}
+
+		</div>
+		<div class="chat-input">
+			<form action="{% url 'send' %}" method="POST">
+                {% csrf_token %}
+			    <input type="text" name="chattitle" placeholder="Type your message here...">
+			    <button type="submit" class="send">📨</button>
+            </form>
+            <form action="{% url 'clear' %}" method="GET">
+                <button class="clear">🧹</button>
+            </form>
+		</div>
+	</div>
+
+
+
+</div>
+
+{% endblock %}

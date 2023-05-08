@@ -1,3 +1,4 @@
 from django.contrib import admin
+from googleApp.models import *
 
-# Register your models here.
+admin.register(Chat_with_GPT)

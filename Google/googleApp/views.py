@@ -1,9 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from googleapiclient.discovery import build
-from googleApp.key import api_key2, api_key3, cx1, cx2, api_keyimg, api_key4
+from googleApp.key import api_key2, api_key3, cx1, cx2, api_keyimg, api_key4, openai_key
 from google_images_search import GoogleImagesSearch
 import requests
 from gpytranslate import SyncTranslator
+from googleApp.models import Chat_with_GPT
+import openai
+
+openai.api_key = openai_key
 
 t = SyncTranslator()
 
@@ -55,4 +59,39 @@ def search_videos_page(request):
     query_vid = request.GET["searchVideos"]
     videos = search_videos(query_vid)
     return render(request, 'videos.html', {'query': query_vid, 'resVideos': videos})
+
+
+def chat_page(request):
+    chat_history = Chat_with_GPT.objects.all()
+    return render(request, 'chat.html', {'chat_history': chat_history})
+
+def send_message(request):
+    chat_history = Chat_with_GPT.objects.all()
+    get_message = request.POST.get("chattitle")
+  #      get_profession = request.POST.get("profession")
+
+    #    pattern = f"You professional {get_profession}. Give answer on human message: {get_message}"
+
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=get_message,
+        temperature=0.25,
+        max_tokens=1000,
+        top_p=1.0,
+        frequency_penalty=0.5,
+        presence_penalty=0.0,
+    )
+    AI_ANSVER = response['choices'][0]['text']
+    Chat_with_GPT.objects.create(user_message=get_message, gpt_message=AI_ANSVER)
+    return redirect('chat')
+
+
+
+def clear_chat_page(request):
+    if request.method == "GET":
+
+        Chat_with_GPT.objects.all().delete()
+        return redirect('chat')
+
+
 

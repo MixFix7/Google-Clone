@@ -23,5 +23,8 @@ urlpatterns = [
     path('', home, name="home"),
     path('search', search, name="searchPage"),
     path('images/', search_images_page, name="imagesPage"),
-    path('videos/', search_videos_page, name="videosPage")
+    path('videos/', search_videos_page, name="videosPage"),
+    path('chat/', chat_page, name="chat"),
+    path('chat/message/', send_message, name="send"),
+    path('chat/clear', clear_chat_page, name="clear"),
 ]

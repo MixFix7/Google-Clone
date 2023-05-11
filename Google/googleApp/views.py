@@ -1,5 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from googleapiclient.discovery import build
+from django.views import View
+from django.views.generic import ListView, DetailView, TemplateView
 from googleApp.key import api_key2, api_key3, cx1, cx2, api_keyimg, api_key4, openai_key
 from google_images_search import GoogleImagesSearch
 import requests
@@ -56,41 +58,48 @@ def gpt_bot(history):
     return ai_answer
 
 
-
-def home(request):
-    return render(request, 'index.html')
-
-def search(request):
-    query_user = request.GET["search"]
-    results_sites = search_sites(query_user)
-    return render(request, 'search.html', {'query': query_user, 'res': results_sites})
-
-def search_images_page(request):
-    query_img = request.GET["searchimg"]
-    results_images = search_images(query_img)
-    return render(request, 'search_images.html', {'query': query_img, 'resImages': results_images})
-
-def search_videos_page(request):
-    query_vid = request.GET["searchVideos"]
-    videos = search_videos(query_vid)
-    return render(request, 'videos.html', {'query': query_vid, 'resVideos': videos})
+class Home(TemplateView):
+    template_name = 'index.html'
 
 
-def chat_page(request):
-    chat_history = Chat_GPT.objects.all()
-    return render(request, 'chat.html', {'chat_history': chat_history})
+class SearchPage(View):
+    def get(self, request):
+        search_user = request.GET["search"]
+        results_sites = search_sites(search_user)
+        return render(request, 'search.html', {'query': search_user, 'res': results_sites})
 
-def send_message(request):
-    get_message = request.POST.get("chttitle")
-    bot_message = gpt_bot(get_message)
-    Chat_GPT.objects.create(gpt_message=bot_message, user_message=get_message)
-    return redirect('chat')
+
+class SearchImages(View):
+    def get(self, request):
+        query_img = request.GET["searchimg"]
+        results_images = search_images(query_img)
+        return render(request, 'search_images.html', {'query': query_img, 'resImages': results_images})
+
+class SearchVideos(View):
+    def get(self, request):
+        query_vid = request.GET["searchVideos"]
+        videos = search_videos(query_vid)
+        return render(request, 'videos.html', {'query': query_vid, 'resVideos': videos})
 
 
 
-def clear_chat_page(request):
-    Chat_GPT.objects.all().delete()
-    return redirect('chat')
+class ChatMessages(ListView):
+    model = Chat_GPT
+    template_name = 'chat.html'
+
+
+class Send_message(View):
+    def post(self, request):
+        get_message = request.POST.get("chttitle")
+        bot_message = gpt_bot(get_message)
+        Chat_GPT.objects.create(gpt_message=bot_message, user_message=get_message)
+        return redirect('chat')
+
+
+class Delete_chat(View):
+    def get(self, request):
+        Chat_GPT.objects.all().delete()
+        return redirect('chat')
 
 
 

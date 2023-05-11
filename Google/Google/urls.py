@@ -20,11 +20,11 @@ from googleApp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name="home"),
-    path('search', search, name="searchPage"),
-    path('images/', search_images_page, name="imagesPage"),
-    path('videos/', search_videos_page, name="videosPage"),
-    path('chat/', chat_page, name="chat"),
-    path('chat/message/', send_message, name="send"),
-    path('chat/clear', clear_chat_page, name="clear"),
+    path('', Home.as_view(), name="home"),
+    path('search/', SearchPage.as_view(), name="searchPage"),
+    path('images/', SearchImages.as_view(), name="imagesPage"),
+    path('videos/', SearchVideos.as_view(), name="videosPage"),
+    path('chat/', ChatMessages.as_view(), name="chat"),
+    path('chat/message/', Send_message.as_view(), name="send"),
+    path('chat/clear', Delete_chat.as_view(), name="clear"),
 ]

@@ -19,8 +19,10 @@
         <span class="e">e</span>
     </h1>
     <form action="{% url 'searchPage' %}" method="GET">
+        <a href="{% url 'chat' %}"><img class="imgBut" src="{% static 'images/chat_button.png' %}" alt=""></a>
         <input type="text" class="input" name="search" placeholder="Search the web">
         <button type="submit" class="enter"><img class="glass" src="{% static 'images/Magnifying-glass.png' %}" alt=""></button>
     </form>
+    
 </div>
 {% endblock %}

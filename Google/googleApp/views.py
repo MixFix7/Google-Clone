@@ -4,7 +4,7 @@ from googleApp.key import api_key2, api_key3, cx1, cx2, api_keyimg, api_key4, op
 from google_images_search import GoogleImagesSearch
 import requests
 from gpytranslate import SyncTranslator
-from googleApp.models import Chat_with_GPT
+from googleApp.models import Chat_GPT
 import openai
 
 openai.api_key = openai_key
@@ -42,6 +42,21 @@ def search_videos(query):
     return search_response
 
 
+def gpt_bot(history):
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=history,
+        temperature=0.25,
+        max_tokens=1000,
+        top_p=1.0,
+        frequency_penalty=0.5,
+        presence_penalty=0.0,
+    )
+    ai_answer = response['choices'][0]['text']
+    return ai_answer
+
+
+
 def home(request):
     return render(request, 'index.html')
 
@@ -62,36 +77,20 @@ def search_videos_page(request):
 
 
 def chat_page(request):
-    chat_history = Chat_with_GPT.objects.all()
+    chat_history = Chat_GPT.objects.all()
     return render(request, 'chat.html', {'chat_history': chat_history})
 
 def send_message(request):
-    chat_history = Chat_with_GPT.objects.all()
-    get_message = request.POST.get("chattitle")
-  #      get_profession = request.POST.get("profession")
-
-    #    pattern = f"You professional {get_profession}. Give answer on human message: {get_message}"
-
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=get_message,
-        temperature=0.25,
-        max_tokens=1000,
-        top_p=1.0,
-        frequency_penalty=0.5,
-        presence_penalty=0.0,
-    )
-    AI_ANSVER = response['choices'][0]['text']
-    Chat_with_GPT.objects.create(user_message=get_message, gpt_message=AI_ANSVER)
+    get_message = request.POST.get("chttitle")
+    bot_message = gpt_bot(get_message)
+    Chat_GPT.objects.create(gpt_message=bot_message, user_message=get_message)
     return redirect('chat')
 
 
 
 def clear_chat_page(request):
-    if request.method == "GET":
-
-        Chat_with_GPT.objects.all().delete()
-        return redirect('chat')
+    Chat_GPT.objects.all().delete()
+    return redirect('chat')
 
 
 

@@ -49,6 +49,7 @@
 				<p>{{m.user_message}}</p>
 			</div>
 
+            
 			<div class="chat-message bot-message"> 
 				<p>{{m.gpt_message}}</p>         
 			</div>
@@ -58,7 +59,7 @@
 		<div class="chat-input">
 			<form action="{% url 'send' %}" method="POST">
                 {% csrf_token %}
-			    <input type="text" name="chattitle" placeholder="Type your message here...">
+			    <input type="text" name="chttitle" placeholder="Type your message here...">
 			    <button type="submit" class="send">📨</button>
             </form>
             <form action="{% url 'clear' %}" method="GET">

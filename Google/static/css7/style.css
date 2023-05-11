@@ -102,6 +102,11 @@ input[type="text"]::placeholder {
   display: none;
 }
 
+.imgBut {
+  height: 50px;
+  width: 50px;
+  margin-right: 5px;
+}
 
 
 

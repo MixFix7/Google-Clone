@@ -7,3 +7,5 @@ Google/googleApp/key.py
 venv/
 
 tests/
+
+.idea/

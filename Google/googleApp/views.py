@@ -13,6 +13,20 @@ openai.api_key = openai_key
 
 t = SyncTranslator()
 
+def gpt_bot(history):
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=history,
+        temperature=0.25,
+        max_tokens=1000,
+        top_p=1.0,
+        frequency_penalty=0.5,
+        presence_penalty=0.0,
+    )
+    ai_answer = response['choices'][0]['text']
+    return ai_answer
+
+
 def search_sites(query):
     service = build('customsearch', 'v1', developerKey=api_key2)
     res = service.cse().list(q=query, cx=cx1).execute()
@@ -44,18 +58,6 @@ def search_videos(query):
     return search_response
 
 
-def gpt_bot(history):
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=history,
-        temperature=0.25,
-        max_tokens=1000,
-        top_p=1.0,
-        frequency_penalty=0.5,
-        presence_penalty=0.0,
-    )
-    ai_answer = response['choices'][0]['text']
-    return ai_answer
 
 
 class Home(TemplateView):
@@ -66,7 +68,8 @@ class SearchPage(View):
     def get(self, request):
         search_user = request.GET["search"]
         results_sites = search_sites(search_user)
-        return render(request, 'search.html', {'query': search_user, 'res': results_sites})
+        result_gpt = gpt_bot(search_user)
+        return render(request, 'search.html', {'query': search_user, 'res': results_sites, 'resGpt': result_gpt})
 
 
 class SearchImages(View):

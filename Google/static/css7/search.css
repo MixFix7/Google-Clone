@@ -52,7 +52,7 @@ form {
 }
   
 
-input[type="text"] {
+.input {
   padding: 10px;
   border: none;
   border-radius: 30px;
@@ -64,7 +64,7 @@ input[type="text"] {
   margin-right: 60px;
 }
 
-input[type="text"]::placeholder {
+.input::placeholder {
   color: #B1B1B1;
 }
 
@@ -138,8 +138,70 @@ nav {
 
 .results {
     margin-left: 150px;
-    overflow-y: scroll;
 }
+
+.gptSearch {
+    padding-top: 10px;
+    padding-left: 10px;
+    background-color: rgb(231, 231, 231);
+    border-radius: 30px;
+    /* word-wrap: break-word; */
+    max-width: 400px;
+    min-width: 400px;
+    min-height: 400px;
+    float: right;
+    position: absolute;
+    top: 170px;
+    left: 1000px;
+}
+
+.bot-message {
+	background-color: #0059ff4b;
+	max-width: 370px;
+	color: white;
+	border-radius: 20px 20px 20px 0;
+	padding: 10px 10px 10px 10px;
+}
+
+.chat-message.bot-message {
+    margin: 0 0 0 0;
+}
+
+.bot-message p {
+    word-wrap: break-word;
+}
+
+
+.chat-input {
+	padding: 15px;
+	background-color: rgba(255, 255, 255, 0.13);
+	position: relative;
+	align-items: center;
+	text-align: center;
+}
+
+.messageGpt {
+    width: 370px;
+    font-size: 15px;
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+}
+
+.messageholder {
+    min-height: 300px;
+}
+
+.send {
+    background-color: #4285f4;
+    color: #fff;
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-left: 10px
+}
+
 
 .avatars {
     height: 30px;

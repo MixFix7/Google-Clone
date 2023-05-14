@@ -7,6 +7,35 @@ body {
     align-items: center;
   }
 
+
+header {
+  position: absolute;
+  text-align: right;
+  align-items: center;
+  top: 10px;
+  right: 1px;
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+  margin-right: 5px;
+
+}
+
+
+.username {
+  display: flex; 
+  align-items: center;
+  font-size: 17px;
+}
+
+
+
 .Page {
   margin-top: 260px;
 }

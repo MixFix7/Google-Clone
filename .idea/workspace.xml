@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e4791c2-34f1-47c1-8c93-2ca03f3d20f0" name="Changes" comment="15 commit reg">
+    <list default="true" id="5e4791c2-34f1-47c1-8c93-2ca03f3d20f0" name="Changes" comment="14 commit OOP">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Google/googleApp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Google/googleApp/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Google/googleApp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Google/googleApp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Google/googleApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Google/googleApp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Google/googleApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Google/googleApp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Google/static/css7/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/Google/static/css7/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Google/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Google/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Google/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/Google/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Google/static/css7/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/Google/static/css7/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Google/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/Google/templates/search.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,15 +52,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo_c30_Dual Xeon/PycharmProjects/Google&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Lenovo_c30_Dual Xeon/PycharmProjects/Google"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -95,14 +91,7 @@
       <option name="project" value="LOCAL" />
       <updated>1683829830986</updated>
     </task>
-    <task id="LOCAL-00004" summary="15 commit reg">
-      <created>1683991428439</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1683991428439</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,8 +109,7 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="2 commit" />
     <MESSAGE value="14 commit OOP" />
-    <MESSAGE value="15 commit reg" />
-    <option name="LAST_COMMIT_MESSAGE" value="15 commit reg" />
+    <option name="LAST_COMMIT_MESSAGE" value="14 commit OOP" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>

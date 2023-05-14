@@ -35,8 +35,10 @@ class Register(View):
 
 
 
-class Login(TemplateView):
-    template_name = 'login.html'
+class Login(View):
+    def get(self, request):
+        form = AuthenticationForm()
+        return render(request, 'login.html', {'form': form})
 
     def post(self, request):
         if request.method == 'POST':

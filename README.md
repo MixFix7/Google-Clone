@@ -6,7 +6,7 @@ Google Clone is a personal project developed by MixFix7, aiming to replicate the
 
 Web Search: Users can perform text-based searches, similar to the functionality provided by the Google search engine. The search results are displayed in a familiar format, including relevant titles, descriptions, and URLs.
 
-![Google Seach](https://github.com/MixFix7/Google-Clone/readme_images/home)
+![Google Search](https://github.com/MixFix7/Google-Clone/blob/main/readme_images/home)
 
 Image Search: Google Clone allows users to search for images using specific keywords. The application utilizes advanced algorithms to retrieve and display relevant images based on the user's search query.
 

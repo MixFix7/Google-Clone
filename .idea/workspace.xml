@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e4791c2-34f1-47c1-8c93-2ca03f3d20f0" name="Changes" comment="14 commit OOP">
+    <list default="true" id="5e4791c2-34f1-47c1-8c93-2ca03f3d20f0" name="Changes" comment="18 commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Google/Google/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Google/Google/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Google/Google/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Google/Google/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Google/avatars/23/Screenshot_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Google/googleApp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Google/googleApp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Google/googleApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Google/googleApp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Google/googleApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Google/googleApp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Google/static/css7/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/Google/static/css7/search.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Google/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/Google/templates/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Google/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Google/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Google/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/Google/templates/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +63,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Lenovo_c30_Dual Xeon/PycharmProjects/Google"
+    "last_opened_file_path": "C:/Users/Lenovo_c30_Dual Xeon/PycharmProjects/youtube/youtube_website/youtube/models.py"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -91,7 +96,28 @@
       <option name="project" value="LOCAL" />
       <updated>1683829830986</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="16 commit reg">
+      <created>1684085577623</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1684085577623</updated>
+    </task>
+    <task id="LOCAL-00005" summary="17 commit login">
+      <created>1684088426631</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684088426631</updated>
+    </task>
+    <task id="LOCAL-00006" summary="18 commit">
+      <created>1684094325690</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1684094325690</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -109,7 +135,10 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="2 commit" />
     <MESSAGE value="14 commit OOP" />
-    <option name="LAST_COMMIT_MESSAGE" value="14 commit OOP" />
+    <MESSAGE value="16 commit reg" />
+    <MESSAGE value="17 commit login" />
+    <MESSAGE value="18 commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="18 commit" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>

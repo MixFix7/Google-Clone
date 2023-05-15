@@ -21,6 +21,8 @@ class SignUpForm(UserCreationForm):
         user.email = self.cleaned_data['email']
         if commit:
             user.save()
-        profile = Profile(user=user, avatar=self.cleaned_data.get('avatar'))
+        profile = Profile(user=user)
+        if self.cleaned_data.get('avatar'):
+            profile.avatar = self.cleaned_data['avatar']
         profile.save()
         return user

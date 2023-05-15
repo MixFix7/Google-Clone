@@ -21,7 +21,7 @@ class Register(View):
 
     def post(self, request):
         if request.method == 'POST':
-            form = SignUpForm(request.POST, request.FILES.get('avatar'))
+            form = SignUpForm(request.POST, request.FILES)
             if form.is_valid():
                 user = form.save()
                 username = form.cleaned_data.get('username')
@@ -32,6 +32,9 @@ class Register(View):
         else:
             form = SignUpForm()
         return render(request, 'register.html', {'form': form})
+
+
+
 
 
 

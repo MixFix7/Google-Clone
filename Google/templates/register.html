@@ -15,8 +15,10 @@
 {% block content %}
 
 
+<img src="{{request.user.profile.avatar.url}}" alt="">
 
-<form class="form_container" method="POST">
+
+<form class="form_container" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="logo_container"></div>
     <div class="title_container">

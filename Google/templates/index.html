@@ -33,20 +33,22 @@
 </header>
 
 <div class="Page">
-<div class="title">
-    <h1 class="Google">
-        <span class="G">G</span>
-        <span class="o">o</span>
-        <span class="o2">o</span>
-        <span class="g">g</span>
-        <span class="l">l</span>
-        <span class="e">e</span>
-    </h1>
-    <form action="{% url 'searchPage' %}" method="GET">
-        <a href="{% url 'chat' %}"><img class="imgBut" src="{% static 'images/chat_button.png' %}" alt=""></a>
-        <input type="text" class="input" name="search" placeholder="Search the web">
-        <button type="submit" class="enter"><img class="glass" src="{% static 'images/Magnifying-glass.png' %}" alt=""></button>
-    </form>
+    <div class="title">
+        <h1 class="Google">
+            <span class="G">G</span>
+            <span class="o">o</span>
+            <span class="o2">o</span>
+            <span class="g">g</span>
+            <span class="l">l</span>
+            <span class="e">e</span>
+        </h1>
+        <form action="{% url 'searchPage' %}" method="GET">
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'chat' %}"><img class="imgBut" src="{% static 'images/chat_button.png' %}" alt=""></a>
+            {% endif %}
+            <input type="text" class="input" name="search" placeholder="Search the web">
+            <button type="submit" class="enter"><img class="glass" src="{% static 'images/Magnifying-glass.png' %}" alt=""></button>
+        </form>
     
 </div>
 {% endblock %}

@@ -5,7 +5,7 @@ from .searches import search_sites, search_videos, search_images, search_images2
 from .forms import SignUpForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
-from googleApp.models import Chat_GPT
+from googleApp.models import *
 from django.contrib import messages
 
 
@@ -87,24 +87,32 @@ class SearchVideos(View):
 
 
 
-class ChatMessages(ListView):
-    model = Chat_GPT
-    template_name = 'chat.html'
+class ChatMessages(View):
+
+    def get(self, request):
+        username = request.user.username
+        history = ChatGPTHistory.objects.filter(name=username)
+        return render(request, 'chat.html', {'history': history})
+
+
+
 
 
 class Send_message(View):
 
     def post(self, request):
+        username = request.user.username
         get_message = request.POST.get("chttitle")
         bot_message = gpt_bot(get_message)
-        Chat_GPT.objects.create(gpt_message=bot_message, user_message=get_message)
+        ChatGPTHistory.objects.create(name=username, gpt_message=bot_message, user_message=get_message)
         return redirect('chat')
 
 
 class Delete_chat(View):
 
     def get(self, request):
-        Chat_GPT.objects.all().delete()
+        username = request.user.username
+        ChatGPTHistory.objects.filter(name=username).delete()
         return redirect('chat')
 
 

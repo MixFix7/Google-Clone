@@ -17,10 +17,12 @@ class Profile(models.Model):
                 img.save(self.avatar.path)
 
 
-class Chat_GPT(models.Model):
+class ChatGPTHistory(models.Model):
     user_message = models.TextField(default='')
     gpt_message = models.TextField(default='')
+    name = models.CharField(max_length=30, default="", editable=False)
     def __str__(self):
-        return self.user_message, self.gpt_message
+        return f"{self.name}: {self.user_message} GPT: {self.gpt_message}"
+
 
 

@@ -16,11 +16,13 @@
 <header>
     {% if request.user.is_authenticated %}
 
-    
+    <button id="themeBut">Change</button>
 
     <span class="username">
-        <a href="{% url 'logout' %}" class="material-symbols-outlined">account_circle</a>
-        {{ request.user.username }}
+        <a title="Logout" href="{% url 'logout' %}" class="avatar">
+          <img class="avatar" src="{{ request.user.profile.avatar.url }}" alt="Avatar">
+        </a>
+        <span class="username-text">{{ request.user.username }}</span>
       </span>
 
     {% else %}

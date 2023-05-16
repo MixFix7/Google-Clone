@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@600&display=swap');
 
 body {
     background-image: url('back.jpg');
@@ -49,6 +50,32 @@ header {
 
 .e {
     color: red;
+}
+
+
+.user-account {
+    position: absolute;
+    text-align: right;
+    align-items: center;
+    top: 10px;
+    right: 1px;
+}
+
+.username {
+    display: flex;
+    align-items: center;
+}
+  
+  .username-text {
+    margin-left: 5px;
+    font-family: 'Fira Sans', sans-serif;
+}
+  
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
 }
 
 

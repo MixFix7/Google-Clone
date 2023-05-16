@@ -34,8 +34,28 @@
             <input id="vid" class="pageimages" type="text" name="searchVideos" value="Hello">
             <button class="btnNext">Videos</button>
         </form>
-        <button class="btnThere">Chat</button>
+        <button type="button" class="btnThere">Chat</button>
     </nav>
+
+    {% if request.user.is_authenticated %}
+
+    
+    <div class="user-account">
+        <span class="username">
+            <a title="Logout" href="{% url 'logout' %}" class="avatar">
+              <img class="avatar" src="{{ request.user.profile.avatar.url }}" alt="Avatar">
+            </a>
+            <span class="username-text">{{ request.user.username }}</span>
+          </span>
+      
+        {% else %}
+          <span>
+            <a href="{% url 'register' %}">Sign In</a>
+        </span>
+    </div>
+    
+        {% endif %}
+
 </header>
 
       <div class="chat-container">

@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@600&display=swap');
+
+
 
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  color: #000000;
+}
 
 
 header {
@@ -29,11 +34,21 @@ header {
 
 
 .username {
-  display: flex; 
+  display: flex;
   align-items: center;
-  font-size: 17px;
 }
 
+.username-text {
+  margin-left: 10px;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+}
 
 
 .Page {

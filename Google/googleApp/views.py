@@ -1,65 +1,12 @@
-from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import ListView, DetailView, TemplateView
-from .searches import search_sites, search_videos, search_images, search_images2, gpt_bot
-from .forms import SignUpForm
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, authenticate, logout
-from googleApp.models import *
-from django.contrib import messages
-
+from django.views.generic import TemplateView
+from .searches import search_sites, search_videos, search_images, gpt_bot
+from .models import *
 
 
 class Home(TemplateView):
     template_name = 'index.html'
-
-
-class Register(View):
-    def get(self, request):
-        form = SignUpForm()
-        return render(request, 'register.html', {'form': form})
-
-    def post(self, request):
-        if request.method == 'POST':
-            form = SignUpForm(request.POST, request.FILES)
-            if form.is_valid():
-                user = form.save()
-                username = form.cleaned_data.get('username')
-                raw_password = form.cleaned_data.get('password1')
-                user = authenticate(username=username, password=raw_password)
-                login(request, user)
-                return redirect('home')
-        else:
-            form = SignUpForm()
-        return render(request, 'reg.html', {'form': form})
-
-
-
-
-
-
-class Login(View):
-    def get(self, request):
-        form = AuthenticationForm()
-        return render(request, 'login.html', {'form': form})
-
-    def post(self, request):
-        if request.method == 'POST':
-            form = AuthenticationForm(data=request.POST)
-            if form.is_valid():
-                login(request, form.get_user())
-                return redirect('home')
-        else:
-            form = AuthenticationForm()
-        return render(request, 'login.html', {'form': form})
-
-
-
-class Logout(View):
-    def get(self, request):
-        logout(request)
-        return redirect('home')
-
 
 
 class SearchPage(View):
@@ -67,8 +14,8 @@ class SearchPage(View):
     def get(self, request):
         search_user = request.GET["search"]
         results_sites = search_sites(search_user)
-        result_gpt = gpt_bot(search_user)
-        return render(request, 'search.html', {'query': search_user, 'res': results_sites, 'resGpt': result_gpt})
+ #       result_gpt = gpt_bot(search_user)
+        return render(request, 'search.html', {'query': search_user, 'res': results_sites}) # 'resGpt': result_gpt})
 
 
 class SearchImages(View):
@@ -93,8 +40,6 @@ class ChatMessages(View):
         username = request.user.username
         history = ChatGPTHistory.objects.filter(name=username)
         return render(request, 'chat.html', {'history': history})
-
-
 
 
 

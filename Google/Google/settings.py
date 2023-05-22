@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'googleApp'
+    'googleApp',
+    'register',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'googledb',
-        'USER': 'root',
+        'USER': 'googleUserDB',
         'PASSWORD': 'lalala11223',
         'HOST': 'localhost',
         'PORT': '3306',

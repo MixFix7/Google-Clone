@@ -65,9 +65,11 @@
         <input id="vid" class="pageimages" type="text" name="searchVideos" value="{{query}}">
         <button class="btnNext">Videos</button>
     </form>
+    {% if request.user.is_authenticated %}
     <form action="{% url 'chat' %}">
         <button class="btnNext">Chat</button>
     </form>
+    {% endif %}
 </nav>
 
 <hr>

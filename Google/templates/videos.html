@@ -48,7 +48,7 @@
    
     
         {% endif %}
-        
+
 </header>
 
 <nav>
@@ -62,9 +62,11 @@
     </form>
     <button class="btnThere">Videos</button>
     <input id="vid" class="pageimages" type="text" name="searchVideos" value="{{query}}">
+    {% if request.user.is_authenticated %}
     <form action="{% url 'chat' %}">
         <button class="btnNext">Chat</button>
     </form>
+    {% endif %}
 </nav>
 
 <hr>

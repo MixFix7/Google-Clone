@@ -36,12 +36,15 @@
                 </a>
                 <span class="username-text">{{ request.user.username }}</span>
               </span>
+            </div>
           
             {% else %}
-              <span>
-                <a href="{% url 'register' %}">Sign In</a>
-            </span>
-        </div>
+            <div class="user-account">
+                  <span class="username">
+                    <a class="username-text" href="{% url 'register' %}">Sign In</a>
+                </span>
+            </div>
+       
         
             {% endif %}
         

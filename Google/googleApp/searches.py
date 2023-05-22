@@ -1,5 +1,5 @@
 from googleapiclient.discovery import build
-from googleApp.key import api_key2, api_key3, cx1, cx2, api_keyimg, api_key4, openai_key
+from .key import api_key2, api_key3, cx1, cx2, api_keyimg, api_key4, openai_key
 from google_images_search import GoogleImagesSearch
 import requests
 from gpytranslate import SyncTranslator

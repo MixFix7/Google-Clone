@@ -2,10 +2,8 @@ let username = document.getElementById("id_username");
 let email = document.getElementById("id_email");
 
 
-
-username.addEventListener('change')
-
-
+username.addEventListener('change', ajax(username));
+email.addEventListener('change', ajax(email));
 
 
 function ajax(type) {

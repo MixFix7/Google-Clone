@@ -7,6 +7,7 @@ from django.contrib.auth import login, authenticate, logout
 from .models import *
 from django.contrib import messages
 
+
 class Register(View):
     def get(self, request):
         form = SignUpForm()
@@ -24,11 +25,7 @@ class Register(View):
                 return redirect('home')
         else:
             form = SignUpForm()
-        return render(request, 'reg.html', {'form': form})
-
-
-
-
+        return render(request, 'register.html', {'form': form})
 
 
 class Login(View):

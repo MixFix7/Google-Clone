@@ -84,22 +84,6 @@
     <br>
 
 {% endfor %}
-<span>
-    <div class="gptSearch">
-        <div class="messageholder">
-            <div class="chat-message bot-message"> 
-                <p>{{resGpt}}</p>         
-            </div>
-        </div>
-            <div class="chat-input">
-                <form action="{% url 'send' %}" method="POST">
-                    {% csrf_token %}
-                    <input class="messageGpt" type="text" name="chttitle" placeholder="Type your message here...">
-                    <button class="send">Send</button>
-                </form>
-            </div>
-        </div>
-</span>
 </div>
 
 {% endblock %}

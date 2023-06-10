@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'Google.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'googledb',
-        'USER': 'googleUserDB',
-        'PASSWORD': 'lalala11223',
+        'NAME': 'GoogleDB',
+        'USER': 'googleDBuser',
+        'PASSWORD': 'lalala11223__+',
         'HOST': 'localhost',
         'PORT': '3306',
     }

@@ -22,5 +22,5 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('googleApp.urls')),
-    path('accounts/', include('register.urls'))
+    path('accounts/', include('register.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

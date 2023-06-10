@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.views import View
 from django.views.generic import ListView, DetailView, TemplateView
 from .forms import SignUpForm
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, authenticate, logout
 from .models import *
 from django.contrib import messages
@@ -55,10 +55,13 @@ class Logout(View):
 
 class UsernamesAjax(View):
     def post(self, request):
-        username = request.POST.get('fasdfasdfasdf')
+        form = UserCreationForm(request.POST)
+
+        username = form.cleaned_data.get("username")
 
         exists = User.objects.filter(username=username).exists()
 
-        return JsonResponse({'exists': exists})
+        return JsonResponse({'exists': username})
+
 
 

@@ -14,8 +14,9 @@ class SearchPage(View):
     def get(self, request):
         search_user = request.GET["search"]
         results_sites = search_sites(search_user)
-       # result_gpt = gpt_bot(search_user)
-        return render(request, 'search.html', {'query': search_user, 'res': results_sites}) # 'resGpt': result_gpt,
+        # result_gpt = gpt_bot(search_user)
+
+        return render(request, 'search.html', {'query': search_user, 'res': results_sites})  # 'resGpt': result_gpt,
 
 
 class SearchImages(View):
@@ -58,9 +59,3 @@ class Delete_chat(View):
         username = request.user.username
         ChatGPTHistory.objects.filter(name=username).delete()
         return redirect('chat')
-
-
-
-
-
-

@@ -8,7 +8,7 @@ function ajax(type) {
     var value = type.value;
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "usernames/", safe=false);
+    xhr.open("GET", "usernames/", True);
     xhr.onreadystatechange = function() {
         if (xhr.status >= 200 && xhr.status <= 400) {
             var responce = JSON.parse(xhr.responseText);
@@ -22,7 +22,7 @@ function ajax(type) {
         };
 
     };
-    xhr.send();
+    xhr.send(JSON.stringify(value));
 };
 
 // username.addEventListener('input', ajax(username));
@@ -50,7 +50,7 @@ username.addEventListener('input', function() {
     // Відправити AJAX-запит на Django-сервер
     xhr.open('POST', 'usernames/');
     xhr.setRequestHeader("X-CSRFToken", csrfToken);
-    xhr.send(JSON.stringify({ input: inputValue }));
+    xhr.send(JSON.stringify(inputValue));
   });
 // email.addEventListener('change', ajax(email));
 

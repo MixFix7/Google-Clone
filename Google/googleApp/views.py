@@ -25,6 +25,7 @@ class SearchImages(View):
         results_images = search_images(query_img)
         return render(request, 'search_images.html', {'query': query_img, 'resImages': results_images})
 
+
 class SearchVideos(View):
 
     def get(self, request):
@@ -33,14 +34,12 @@ class SearchVideos(View):
         return render(request, 'videos.html', {'query': query_vid, 'resVideos': videos})
 
 
-
 class ChatMessages(View):
 
     def get(self, request):
         username = request.user.username
         history = ChatGPTHistory.objects.filter(name=username)
         return render(request, 'chat.html', {'history': history})
-
 
 
 class Send_message(View):

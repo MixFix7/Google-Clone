@@ -1,11 +1,18 @@
 let username = document.getElementById("id_username");
 let email = document.getElementById("id_email");
 
-username.addEventListener('change', function() {
-    let value = username.value;
+
+
+username.addEventListener('change')
+
+
+
+
+function ajax(type) {
+    let value = type.value;
 
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "all-usernames", safe=false);
+    xhr.open("GET", "${type}s/", safe=false);
     xhr.onreadystatechange = function() {
         if (xhr.status >= 200 && xht.status <= 400) {
             var responce = xhr.responseText;
@@ -13,4 +20,4 @@ username.addEventListener('change', function() {
         }
     };
     xhr.send();
-});
+};

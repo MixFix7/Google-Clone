@@ -21,21 +21,21 @@
 
 
 <form class="form_container" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
+  {% csrf_token %}
     <div class="logo_container"></div>
     <div class="title_container">
       <p class="title">Register you new Account</p>
       
     </div>
     <br>
-
+    
     {% for field in form %}
     
     <div class="input_container">
-        <label class="input_label">{{ field.label }}</label>
-        <div class="input_field_container">
-            {{ field }}
-        </div>
+      <label class="input_label">{{ field.label }}</label>
+      <div class="input_field_container">
+        {{ field }}
+      </div>
         {% endfor %}
     </div>
 

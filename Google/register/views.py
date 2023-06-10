@@ -6,6 +6,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from .models import *
 from django.contrib import messages
+from django.http import JsonResponse
+from register.models import Profile
 
 
 class Register(View):
@@ -49,3 +51,14 @@ class Logout(View):
     def get(self, request):
         logout(request)
         return redirect('home')
+
+
+class UsernamesAjax(View):
+    def post(self, request):
+        username = request.POST.get('fasdfasdfasdf')
+
+        exists = User.objects.filter(username=username).exists()
+
+        return JsonResponse({'exists': exists})
+
+

@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('googleApp.urls')),
     path('accounts/', include('register.urls')),
+    path('ajax/', include('ajax.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

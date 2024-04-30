@@ -3,6 +3,7 @@ from django.views import View
 from django.views.generic import TemplateView
 from .searches import search_sites, search_videos, search_images, gpt_bot
 from .models import *
+from django.contrib.auth.models import User
 
 
 class Home(TemplateView):
@@ -13,10 +14,10 @@ class SearchPage(View):
 
     def get(self, request):
         search_user = request.GET["search"]
+        print(search_user)
         results_sites = search_sites(search_user)
-        # result_gpt = gpt_bot(search_user)
-
-        return render(request, 'search.html', {'query': search_user, 'res': results_sites})  # 'resGpt': result_gpt,
+        result_gpt = gpt_bot(search_user)
+        return render(request, 'search.html', {'query': search_user, 'res': results_sites, 'resGpt': result_gpt})  #
 
 
 class SearchImages(View):

@@ -1,26 +1,45 @@
 from googleapiclient.discovery import build
 from .key import api_key2, api_key3, cx1, cx2, api_keyimg, api_key4, openai_key
-from google_images_search import GoogleImagesSearch
 import requests
 from gpytranslate import SyncTranslator
-import openai
 
-openai.api_key = openai_key
+from openai import OpenAI
+client = OpenAI(api_key=openai_key)
 
 t = SyncTranslator()
 
-def gpt_bot(history):
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=history,
-        temperature=0.25,
-        max_tokens=1000,
-        top_p=1.0,
-        frequency_penalty=0.5,
-        presence_penalty=0.0,
+def gpt_bot(gpt_message):
+    print(gpt_message)
+    # response = openai.ChatCompletion.create(
+    #     model="gpt-3.5-turbo-0613",
+    #     prompt=history,
+    #     temperature=0.25,
+    #     max_tokens=1000,
+    #     top_p=1.0,
+    #     frequency_penalty=0.5,
+    #     presence_penalty=0.0,
+    # )
+    # ai_answer = response['choices'][0]['text']
+    # return ai_answer
+
+    response = client.chat.completions.create(
+        model="gpt-4-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": gpt_message},
+        ]
     )
-    ai_answer = response['choices'][0]['text']
-    return ai_answer
+    print(response.choices[0].message.content)
+
+    return response.choices[0].message.content
+
+# def chat_with_gpt(prompt, max_tokens=50):
+#     response = openai.Completion.create(
+#         engine="text-davinci-002",
+#         prompt=prompt,
+#         max_tokens=max_tokens
+#     )
+#     return response.choices[0].text.strip()
 
 
 def search_sites(query):

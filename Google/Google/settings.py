@@ -28,7 +28,11 @@ SECRET_KEY = 'django-insecure-kt(d)qgc!kt@1i+(t0i41_3=2fh)mekk)q%yc!%h0mjgjq#u7=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://151c-94-231-187-250.ngrok-free.app"
+]
 
 
 # Application definition
@@ -80,16 +84,11 @@ WSGI_APPLICATION = 'Google.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'GoogleDB',
-        'USER': 'googleDBuser',
-        'PASSWORD': 'lalala11223__+',
-        'HOST': 'localhost',
-        'PORT': '3306',
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "mydatabase",
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
